@@ -1,7 +1,9 @@
 <script>
-  import { addNewContact } from '../services/index';
+  // TODO: Uncomment baris kode di bawah untuk meng-import fungsi addNewContact dari services/index.js
+  // import { addNewContact } from '../services/index';
 
-  export let handleGetContacts;
+  // TODO: Uncomment baris kode di bawah untuk mendapatkan fungsi handleGetContacts dari props
+  // export let handleGetContacts;
 
   let input = {
     full_name: "",
@@ -31,16 +33,17 @@
     }
   }
 
-  async function handleSubmit() {
-    await addNewContact({
-      full_name: input.full_name,
-      phone_number: input.phone_number,
-      email: input.email
-    })
+  // TODO: Uncomment baris kode di bawah untuk memanggil fungsi mengirim data kontak baru yang sudah diimport sebelumnya dari services/index.js lalu panggil fungsi untuk mengambil semua data kontak dari api dan mereset value yang ada di setiap input field
+  // async function handleSubmit() {
+  //   await addNewContact({
+  //     full_name: input.full_name,
+  //     phone_number: input.phone_number,
+  //     email: input.email
+  //   })
 
-    handleGetContacts();
-    resetInputValue();
-  }
+  //   handleGetContacts();
+  //   resetInputValue();
+  // }
 </script>
 
 <div class="input-contact__form-container">
