@@ -1,20 +1,15 @@
 <script>
-  import { deleteContact } from '../services/index';
-
   export let id = 0;
   export let full_name = '';
   export let email = '';
   export let phone_number = '';
   export let handleGetContacts, handleSetSelected;
 
-  function handleEditContact() {
-    handleSetSelected(id, full_name, phone_number, email);
-  };
-
-  async function handleDeleteContact() {
-    await deleteContact(id);
-    handleGetContacts();
-  };
+  // TODO:
+  // 1. Buat sebuah fungsi untuk men-dispatch fungsi menghapus kontak yang sudah dibuat sebelumnya di services/index.js dan memanggil fungsi handleGetContacts untuk refresh data kontak
+  // 2. Buat button edit dengan properti data-cy nya btn-edit, class nya contact-item__button dan contact-item__edit-button serta menjalankan fungsi handleSetSelected ketika di klik
+  // 3. Buat button hapus dengan properti data-cy nya btn-delete, class nya contact-item__button dan contact-item__delete-button serta menjalankan fungsi menghapus kontak yang sudah dibuat sebelumnya ketika di klik
+  // 4. Kedua button tersebut dibuat di dalam elemen div dengan class contact-item__button-wrapper
 </script>
 
 <div data-cy="item-card" class="contact-item__wrapper">
@@ -22,22 +17,7 @@
     <p data-cy="item-name" class="contact-item__name">
       {full_name}
     </p>
-    <div class="contact-item__button-wrapper">
-      <button
-        data-cy="btn-edit"
-        class="contact-item__button contact-item__edit-button"
-        on:click={handleEditContact}
-      >
-        Edit
-      </button>
-      <button
-        data-cy="btn-delete"
-        class="contact-item__button contact-item__delete-button"
-        on:click={handleDeleteContact}
-      >
-        Hapus
-      </button>
-    </div>
+    <div class="contact-item__button-wrapper"></div>
   </div>
   <div class="contact-item__second-row">
     <p class="contact-item__phone-email">

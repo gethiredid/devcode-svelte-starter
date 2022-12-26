@@ -1,6 +1,6 @@
 <script>
   import { afterUpdate } from 'svelte';
-  import { addNewContact, updateContactInfo } from '../services/index';
+  import { addNewContact } from '../services/index';
 
   export let handleGetContacts, handleResetSelected, selectedContact;
 
@@ -43,23 +43,16 @@
     selectedId = 0;
   }
 
+  // TODO:
+  // 1. Buat metode untuk dispatch fungsi ubah data kontak yang sudah dibuat sebelumnya di service/index.js di dalam fungsi handleSubmit
+  // 2. Pada fungsi handleSubmit, buat percabangan dengan kondisi ketika nilai dari id lebih dari 0, maka jalankan fungsi ubah data kontak dan untuk sebaliknya, maka jalankan fungsi untuk tambah kontak baru
+
   async function handleSubmit() {
-    if (selectedId !== 0) {
-      await updateContactInfo({
-        id: selectedId,
-        data: {
-          full_name: input.full_name,
-          phone_number: input.phone_number,
-          email: input.email
-        }
-      })
-    } else {
-      await addNewContact({
-        full_name: input.full_name,
-        phone_number: input.phone_number,
-        email: input.email
-      })
-    }
+    await addNewContact({
+      full_name: input.full_name,
+      phone_number: input.phone_number,
+      email: input.email
+    })
 
     handleGetContacts();
     resetInputValue();

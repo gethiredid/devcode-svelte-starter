@@ -39,7 +39,8 @@
 <div>
   <div class="home">
     <div class="container">
-      <InputContactForm handleGetContacts={handleGetContactsData} handleResetSelected={handleResetSelectedContact} selectedContact={selectedContact} />
+      <!-- TODO: Tambahkan selectedContact sebagai props pada komponen InputContactForm -->
+      <InputContactForm handleGetContacts={handleGetContactsData} handleResetSelected={handleResetSelectedContact} />
       <div class="contact-list__container">
         {#each contactsList as contact}
           <ContactItem id={contact.id} full_name={contact.full_name} email={contact.email} phone_number={contact.phone_number} handleGetContacts={handleGetContactsData} handleSetSelected={handleSetSelectedContact} />
