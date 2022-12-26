@@ -1,5 +1,5 @@
 <script>
-  import devcodeLogo from '../assets/devcode-logo.png';
+  import devcodeLogo from '$lib/assets/devcode-logo.png';
 </script>
 
 <div class="hello">
