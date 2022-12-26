@@ -20,6 +20,8 @@ Peserta dapat mengubah dan menghapus data kontak yang sudah ada lalu menampilkan
 3. Push project ke online repository yang sudah anda buat
 4. Deploy project ini ke Hosting yang anda miliki atau bisa juga menggunakan layanan hosting gratis seperti Vercel (Jika belum memiliki akun Vercel, silahkan daftar [disini](https://vercel.com/signup))
 
+Untuk Dokumentasi API yang digunakan pada challenge ini dapat diakses [disini](https://documenter.getpostman.com/view/6584319/2s8Yt1rUtN).
+
 ## Teknologi yang Digunakan
 
 1. [Svelte](https://svelte.dev/)
