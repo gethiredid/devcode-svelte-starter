@@ -4,8 +4,15 @@
 
   export let handleGetContacts, handleResetSelected, selectedContact;
 
-  const regexPhoneNumber = /^[0-9]*$/;
-  const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  // TODO: Uncomment baris kode di bawah untuk membuat regex yang akan membantu memvalidasi format nomor telepon dan email
+  // const regexPhoneNumber = /^[0-9]*$/;
+  // const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  // TODO:
+  // 1. Buat sebuah fungsi yang akan memvalidasi apakah format dari nomor telepon dan email yang dimasukkan sudah benar atau belum
+  // 2. Jika format nomor telepon salah, maka tampilkan sebuah alert dengan isi pesan "Nomor telepon hanya dapat berupa angka."
+  // 3. Jika format email salah, maka tampilkan sebuah alert dengan isi pesan "Format email tidak sesuai."
+  // 4. Jika format nomor telepon dan email sudah benar, maka lanjutkan proses untuk membuat kontak baru atau meng-update kontak
 
   let input = {
     full_name: "",
@@ -45,20 +52,6 @@
     }
     selectedId = 0;
   }
-
-  const onSubmit = () => {
-    handleValidation();
-  };
-
-  function handleValidation() {
-    if (!regexPhoneNumber.test(input.phone_number)) {
-      alert("Nomor telepon hanya dapat berupa angka.");
-    } else if (!regexEmail.test(input.email)) {
-      alert("Format email tidak sesuai.");
-    } else {
-      handleSubmit();
-    }
-  };
 
   async function handleSubmit() {
     if (selectedId !== 0) {
@@ -129,7 +122,7 @@
     <button
       data-cy="btn-submit"
       disabled='{!input.full_name || !input.phone_number || !input.email}'
-      on:click={onSubmit}
+      on:click={handleSubmit}
     >
       Simpan
     </button>

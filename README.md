@@ -2,7 +2,7 @@
 
 ## Hasil Akhir yang Diharapkan
 
-Peserta dapat menampilkan Halaman Hello yang berisi Logo Devcode dan Teks `I'm ready for the next challenge!`.
+Peserta dapat membuat validasi pada field nomor telepon dan email sebelum melakukan proses submit data kontak yang akan dibuat atau dirubah
 
 ## Setup Environment
 
@@ -15,7 +15,7 @@ Peserta dapat menampilkan Halaman Hello yang berisi Logo Devcode dan Teks `I'm r
 
 ## Instruksi Pengerjaan
 
-1. Selesaikan semua TODO yang terdapat pada file `components/HelloWorld.svelte`, `components/WelcomeCard.svelte`
+1. Selesaikan semua TODO yang terdapat pada file `components/InputContactForm.svelte`
 2. Buat online repository di Github (Jika belum memiliki akun Github, silahkan daftar [disini](https://github.com/signup))
 3. Push project ke online repository yang sudah anda buat
 4. Deploy project ini ke Hosting yang anda miliki atau bisa juga menggunakan layanan hosting gratis seperti Vercel (Jika belum memiliki akun Vercel, silahkan daftar [disini](https://vercel.com/signup))
