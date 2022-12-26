@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { getAllContactsData } from '../../services/index';
 
+  import InputContactForm from '../../components/InputContactForm.svelte';
   import ContactItem from '../../components/ContactItem.svelte';
 
   let contactsList = []
@@ -14,6 +15,7 @@
 <div>
   <div class="home">
     <div class="container">
+      <InputContactForm />
       <div class="contact-list__container">
         {#each contactsList as contact}
           <ContactItem full_name={contact.full_name} email={contact.email} phone_number={contact.phone_number} />
