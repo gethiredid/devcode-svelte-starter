@@ -6,6 +6,25 @@
   import ContactItem from '../../components/ContactItem.svelte';
 
   let contactsList = []
+  let selectedContact = {
+    id: 0,
+    full_name: '',
+    phone_number: '',
+    email: '',
+  }
+
+  function handleSetSelectedContact(id, full_name, phone_number, email) {
+    selectedContact = { id, full_name, phone_number, email }
+  }
+
+  function handleResetSelectedContact() {
+    selectedContact = {
+      id: 0,
+      full_name: '',
+      phone_number: '',
+      email: '',
+    }
+  }
 
   async function handleGetContactsData() {
     const res = await getAllContactsData();
@@ -20,10 +39,10 @@
 <div>
   <div class="home">
     <div class="container">
-      <InputContactForm handleGetContacts={handleGetContactsData} />
+      <InputContactForm handleGetContacts={handleGetContactsData} handleResetSelected={handleResetSelectedContact} selectedContact={selectedContact} />
       <div class="contact-list__container">
         {#each contactsList as contact}
-          <ContactItem full_name={contact.full_name} email={contact.email} phone_number={contact.phone_number} />
+          <ContactItem id={contact.id} full_name={contact.full_name} email={contact.email} phone_number={contact.phone_number} handleGetContacts={handleGetContactsData} handleSetSelected={handleSetSelectedContact} />
         {/each}
       </div>
     </div>

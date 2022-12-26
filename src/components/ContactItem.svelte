@@ -1,7 +1,20 @@
 <script>
+  import { deleteContact } from '../services/index';
+
+  export let id = 0;
   export let full_name = '';
   export let email = '';
   export let phone_number = '';
+  export let handleGetContacts, handleSetSelected;
+
+  function handleEditContact() {
+    handleSetSelected(id, full_name, phone_number, email);
+  };
+
+  async function handleDeleteContact() {
+    await deleteContact(id);
+    handleGetContacts();
+  };
 </script>
 
 <div data-cy="item-card" class="contact-item__wrapper">
@@ -9,6 +22,22 @@
     <p data-cy="item-name" class="contact-item__name">
       {full_name}
     </p>
+    <div class="contact-item__button-wrapper">
+      <button
+        data-cy="btn-edit"
+        class="contact-item__button contact-item__edit-button"
+        on:click={handleEditContact}
+      >
+        Edit
+      </button>
+      <button
+        data-cy="btn-delete"
+        class="contact-item__button contact-item__delete-button"
+        on:click={handleDeleteContact}
+      >
+        Hapus
+      </button>
+    </div>
   </div>
   <div class="contact-item__second-row">
     <p class="contact-item__phone-email">
@@ -46,7 +75,7 @@
     margin: 0;
   }
 
-  /* .contact-item__button-wrapper {
+  .contact-item__button-wrapper {
     display: flex;
     gap: 8px;
   }
@@ -59,8 +88,9 @@
     border: none;
     border-radius: 4px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     color: #ffffff;
+    cursor: pointer;
   }
 
   .contact-item__edit-button {
@@ -69,5 +99,5 @@
 
   .contact-item__delete-button {
     background: #dc3545;
-  } */
+  }
 </style>

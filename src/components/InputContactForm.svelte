@@ -1,12 +1,23 @@
 <script>
-  import { addNewContact } from '../services/index';
+  import { afterUpdate } from 'svelte';
+  import { addNewContact, updateContactInfo } from '../services/index';
 
-  export let handleGetContacts;
+  export let handleGetContacts, handleResetSelected, selectedContact;
 
   let input = {
     full_name: "",
     phone_number: "",
     email: "",
+  }
+  let selectedId = 0;
+
+  function onSetSelectedContact() {
+    if (selectedContact.id !== 0) {
+      selectedId = selectedContact.id;
+      input.full_name = selectedContact.full_name;
+      input.phone_number = selectedContact.phone_number;
+      input.email = selectedContact.email;
+    }
   }
 
   function onInputChanged(type, value) {
@@ -29,18 +40,37 @@
       phone_number: "",
       email: "",
     }
+    selectedId = 0;
   }
 
   async function handleSubmit() {
-    await addNewContact({
-      full_name: input.full_name,
-      phone_number: input.phone_number,
-      email: input.email
-    })
+    if (selectedId !== 0) {
+      await updateContactInfo({
+        id: selectedId,
+        data: {
+          full_name: input.full_name,
+          phone_number: input.phone_number,
+          email: input.email
+        }
+      })
+    } else {
+      await addNewContact({
+        full_name: input.full_name,
+        phone_number: input.phone_number,
+        email: input.email
+      })
+    }
 
     handleGetContacts();
     resetInputValue();
+    handleResetSelected();
   }
+
+  afterUpdate(() => {
+    if (selectedId === 0) {
+      onSetSelectedContact();
+    }
+  })
 </script>
 
 <div class="input-contact__form-container">
