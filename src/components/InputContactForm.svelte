@@ -4,6 +4,9 @@
 
   export let handleGetContacts, handleResetSelected, selectedContact;
 
+  const regexPhoneNumber = /^[0-9]*$/;
+  const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   let input = {
     full_name: "",
     phone_number: "",
@@ -42,6 +45,20 @@
     }
     selectedId = 0;
   }
+
+  const onSubmit = () => {
+    handleValidation();
+  };
+
+  function handleValidation() {
+    if (!regexPhoneNumber.test(input.phone_number)) {
+      alert("Nomor telepon hanya dapat berupa angka.");
+    } else if (!regexEmail.test(input.email)) {
+      alert("Format email tidak sesuai.");
+    } else {
+      handleSubmit();
+    }
+  };
 
   async function handleSubmit() {
     if (selectedId !== 0) {
@@ -112,7 +129,7 @@
     <button
       data-cy="btn-submit"
       disabled='{!input.full_name || !input.phone_number || !input.email}'
-      on:click={handleSubmit}
+      on:click={onSubmit}
     >
       Simpan
     </button>
