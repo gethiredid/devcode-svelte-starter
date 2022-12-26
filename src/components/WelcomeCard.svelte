@@ -8,13 +8,3 @@
     <a class="router__btn" href="/hello">Lihat hasil</a>
   </div>
 </div>
-
-<style>
-  :global(.router__btn) {
-    padding: 12px;
-    background: aqua;
-    color: #2c3e50;
-    text-decoration-line: none;
-    border-radius: 8px;
-  }
-</style>
