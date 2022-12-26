@@ -1,15 +1,23 @@
 <script>
-  import { onMount } from 'svelte';
-  import { getAllContactsData } from '../../services/index';
+  // TODO: Uncomment baris kode di bawah untuk meng-import onMount component lifecycle hooks dari svelte
+  // import { onMount } from 'svelte';
+
+  // TODO: Uncomment baris kode di bawah untuk meng-import fungsi mengambil data dari API dari folder services
+  // import { getAllContactsData } from '../../services/index';
 
   import InputContactForm from '../../components/InputContactForm.svelte';
-  import ContactItem from '../../components/ContactItem.svelte';
 
-  let contactsList = []
-  onMount(async () => {
-    const res = await getAllContactsData();
-    contactsList = res?.data?.data;
-  })
+  // TODO: Uncomment baris kode di bawah untuk meng-import komponen ContactItem
+  // import ContactItem from '../../components/ContactItem.svelte';
+
+  // TODO: Uncomment baris kode di bawah untuk membuat variabel yang akan menyimpan data list kontak dari API
+  // let contactsList = []
+
+  // TODO: Uncomment baris kode dibawah untuk mengeksekusi onMount hooks yang di dalamnya berisi pemanggilan fungsi mengambil data kontak dari API dan memasukkan datanya ke dalam variabel contactsList
+  // onMount(async () => {
+  //   const res = await getAllContactsData();
+  //   contactsList = res?.data?.data;
+  // })
 </script>
 
 <div>
@@ -17,9 +25,10 @@
     <div class="container">
       <InputContactForm />
       <div class="contact-list__container">
-        {#each contactsList as contact}
+        <!-- TODO: Uncomment baris kode di bawah ini untuk menampilkan komponen ContactItem yang berisi data kontak sesuai dengan jumlah data kontak yang didapat dari API -->
+        <!-- {#each contactsList as contact}
           <ContactItem full_name={contact.full_name} email={contact.email} phone_number={contact.phone_number} />
-        {/each}
+        {/each} -->
       </div>
     </div>
   </div>
