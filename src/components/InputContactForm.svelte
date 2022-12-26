@@ -52,7 +52,7 @@
         data-cy="input-nama"
         type="text"
         name="nama"
-        value={input.full_name}
+        bind:value={input.full_name}
         placeholder="Masukkan Nama Lengkap"
         on:change={e => onInputChanged('full_name', e.target.value)}
       />
@@ -63,7 +63,7 @@
         data-cy="input-telepon"
         type="text"
         name="telepon"
-        value={input.phone_number}
+        bind:value={input.phone_number}
         placeholder="Masukkan Nomor Telepon"
         on:change={e => onInputChanged('phone_number', e.target.value)}
       />
@@ -74,14 +74,14 @@
         data-cy="input-email"
         type="text"
         name="email"
-        value={input.email}
+        bind:value={input.email}
         placeholder="Masukkan Email"
         on:change={e => onInputChanged('email', e.target.value)}
       />
     </div>
     <button
       data-cy="btn-submit"
-      disabled={!input.full_name || !input.phone_number || !input.email}
+      disabled='{!input.full_name || !input.phone_number || !input.email}'
       on:click={handleSubmit}
     >
       Simpan
